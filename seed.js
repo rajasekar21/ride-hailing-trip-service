@@ -58,6 +58,7 @@ async function seed() {
     .on("end", async () => {
       await Trip.bulkCreate(results, { ignoreDuplicates: true });
       console.log(`✅ Seeded ${results.length} trips`);
+      await db.close();
     });
 }
 
